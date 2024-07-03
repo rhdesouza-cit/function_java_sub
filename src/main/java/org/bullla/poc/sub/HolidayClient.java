@@ -4,7 +4,7 @@ import feign.RequestLine;
 
 public interface HolidayClient {
 
-    @RequestLine("POST /messages-holiday-posts")
+    @RequestLine("POST /v1/json-server/posts")
     void postHoliday(Holiday holiday);
 
 }
