@@ -1,0 +1,15 @@
+gcloud functions deploy func-subscriber-java \
+    --gen2 \
+    --runtime=java21 \
+    --project=bullla-one-d-apps-cn-92c3 \
+    --region=us-central1 \
+    --source=. \
+    --entry-point=org.bullla.poc.sub.HolidayFunctionEvent \
+    --trigger-topic=topic1-poc-java \
+    --timeout=300s \
+    --cpu=1 \
+    --memory=256Mi \
+    --vpc-connector=projects/gc-pr-host-dev/locations/us-central1/connectors/conn-serverless-dev \
+    --egress-settings=private-ranges-only \
+    --service-account=gcp-functions@bullla-one-d-apps-cn-92c3.iam.gserviceaccount.com \
+    --env-vars-file=./env-vars-func1.yaml
